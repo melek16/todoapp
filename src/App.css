@@ -44,19 +44,24 @@ form{
   justify-content: center;
 }
 .List{
-  width:20%;
+  width:300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2%;
+  padding:2%;
   background: #FFFFFE;
   border-radius: 1.5%;
   background: #161F6D;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+@media screen and (max-width: 600px) {
+  .List {
+    padding:10% 2%;
+  }
+}
 
-.check, .delete{
+.check, .delete, .edit{
   padding: 0;
   margin: 2px;
   height: 25px;
@@ -64,6 +69,9 @@ form{
   background: none;
   border: none;
  
+}
+#submit:disabled{
+  opacity: 0.7;
 }
 #submit:hover,button:hover{
   cursor:pointer
@@ -74,11 +82,14 @@ fill:green
 .delete:hover>svg>path{
   fill:#b41e1e
 }
+.edit:hover>svg>path{
+  fill:#a8a7a7
+}
 .buttons{
   display: flex;
   align-items: center;
 }
-.check *,.delete *{
+.check *,.delete *,.edit *{
   height: 100%;
   width: 100%;
   padding: 0%;
@@ -103,6 +114,7 @@ li{
   border-radius: .2em; 
  background: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ position: relative;
 }
 #ClearAll{
   display: flex;
@@ -111,10 +123,22 @@ li{
   margin: 2% 2% 0 2%;
   height: 2.5em;
   width:6em;
-  
   border-radius: 10%;
   color: #00ABE1;
   border:.25em #00ABE1 solid;
   background: #161F6D;
 
 }
+.edit_input{
+  width: 59%;
+  font-size:0.94em ;
+  padding: 0%;
+  margin: 0%;
+  display:none;
+  border: none;
+  position: absolute;
+  padding-top: 1.5%;
+  outline: none;
+  height: 90%;
+}
+
