@@ -1,4 +1,4 @@
-import React,{useEffect, useRef, useState} from "react"
+import React,{useEffect, useState} from "react"
 
 
 const List=()=>{
@@ -20,17 +20,16 @@ const List=()=>{
     const deleting=(deleted_id)=>{
       setTodos(todos.filter(c=>c.id!==deleted_id))
     }
-    let edit_block=useRef()
     const edit=(e)=>{
-      edit_block.current.style.display='block'
-      edit_block.current.focus()
+      e.target.parentNode.previousSibling.style.display='block'
+      e.target.parentNode.previousSibling.focus()
       
     }
     const editting=(e,edit_id)=>{
         todos.find(c=>c.id===edit_id).task= e.target.value || todos.find(c=>c.id===edit_id).task 
         setTodos([...todos])
-        edit_block.current.style.display='none'
-        edit_block.current.value=''
+        e.target.style.display='none'
+        e.target.value=''
   }
     const clearAll=()=>{
         setTodos([]) 
@@ -52,7 +51,7 @@ const List=()=>{
           <ul>
           {todos.map((c,i)=><li id={i} style={{color:(c.isDone && "green") || "black",textDecoration:(c.isDone && "line-through") || "none"}}>
               {c.task}
-              <input placeholder={c.task} ref={edit_block} className="edit_input" type="text" maxLength="14" onKeyUp={(e)=> {if(e.which===13){editting(e,c.id)}}} onBlur={e=>editting(e,c.id)}/>
+              <input placeholder={c.task} className="edit_input" type="text" maxLength="14" onKeyUp={(e)=> {if(e.which===13){editting(e,c.id)}}} onBlur={e=>editting(e,c.id)}/>
               <div className="buttons">
               <button className="check" onClick={()=>done(c.id)}>
               <svg  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill={(c.isDone && "green") || "#e9e9e9"} d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg>
