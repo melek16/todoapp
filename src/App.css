@@ -76,15 +76,6 @@ form{
 #submit:hover,button:hover{
   cursor:pointer
 }
-.check:hover >svg>path{
-fill:green
-}
-.delete:hover>svg>path{
-  fill:#b41e1e
-}
-.edit:hover>svg>path{
-  fill:#a8a7a7
-}
 .buttons{
   display: flex;
   align-items: center;
@@ -140,5 +131,16 @@ li{
   padding-top: 1.5%;
   outline: none;
   height: 90%;
+}
+@media(hover: hover) and (pointer: fine) {
+  .check:hover >svg>path{
+    fill:green
+    }
+    .delete:hover>svg>path{
+      fill:#b41e1e
+    }
+    .edit:hover>svg>path{
+      fill:#a8a7a7
+    }
 }
 
