@@ -15,7 +15,7 @@ const List=()=>{
         
       }
     const done=(done_id)=>{
-        setTodos(todos.map(c=>(c.id===done_id)? {task:c.task,isDone:!c.isDone,id:c.id}:c))
+        setTodos(todos.map(c=>(c.id===done_id)? {...c,isDone:!c.isDone}:c))
     } 
     const deleting=(deleted_id)=>{
       setTodos(todos.filter(c=>c.id!==deleted_id))
