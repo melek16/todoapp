@@ -1,5 +1,5 @@
 body{
- background: #00ABE1;
+  background: #00ABE1;
 }
 ::selection{
   color:tomato;
@@ -11,11 +11,11 @@ h1{
 #newTask{
   border-radius: 3px 0 0 3px;
   border: none;
- height: 100%;
- padding: 0% 0 0 2%;
+  height: 100%;
+  padding: 0% 0 0 2%;
   margin: 0 1% 0 0;
 }
-#submit{
+#submit,#filter button{
   border-radius:0 3px 3px 0;
   border: none;
   height: 100%;
@@ -143,4 +143,33 @@ li{
       fill:#a8a7a7
     }
 }
+
+
+/*filter*/
+#filter{
+  display:flex;
+  align-items: center;
+  width: 70%;
+  height: 22px;
+  margin-top: 3%;
+}
+#filter button{
+  height:100%;
+  border-radius: 2px;
+  margin-right: 1px;
+}
+#filter button:hover,#filter .selected{
+  background: #199173;
+}
+#filter .notSelected{
+  background: #00ABE1;
+}
+#filter p{
+  margin: 0;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
 
